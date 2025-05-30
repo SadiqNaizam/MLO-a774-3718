@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import defaultTheme from 'tailwindcss/defaultTheme';
 
 export default {
 	darkMode: ["class"],
@@ -61,13 +62,20 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+        // Added colors based on PRD designSystem.colorPalette for direct utility class usage
+        primaryText: '#212121',      // PRD: designSystem.colorPalette.primaryText
+        secondaryText: '#5F5F5F',    // PRD: designSystem.colorPalette.secondaryText
+        actionButton: '#00ACC1',     // PRD: designSystem.colorPalette.actionButton
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
 			},
+      fontFamily: {
+        sans: ['sans-serif', ...defaultTheme.fontFamily.sans], // PRD: typography.primaryFont: "Sans-serif"
+      },
 			keyframes: {
 				'accordion-down': {
 					from: {
